@@ -1,4 +1,4 @@
 class Notification < ApplicationRecord
   belongs_to :user
-  belongs_to :typetarget
+  belongs_to :target
 end
