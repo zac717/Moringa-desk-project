@@ -1,13 +1,16 @@
-Rails.application.routes.draw do
-  resources :notifications
-  resources :question_tags
-  resources :tags
-  resources :votes
-  resources :answers
-  resources :questions
-  resources :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
-end
+ Rails.application.routes.draw do
+    root 'questions#index'
+    resources :users, only: [:new, :create]
+    get '/login', to: 'sessions#new'
+    post '/login', to: 'sessions#create'
+    delete '/logout', to: 'sessions#destroy'
+    resources :questions do
+      resources :answers, only: [:create]
+    end
+    resources :answers do
+      resources :votes, only: [:create, :destroy]
+    end
+    resources :tags, only: [:show]
+    resources :question_tags, only: [:create, :destroy]
+    resources :notifications, only: [:index]
+  end
