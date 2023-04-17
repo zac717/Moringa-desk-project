@@ -1,7 +1,11 @@
  Rails.application.routes.draw do
     root 'questions#index'
-    resources :users, only: [:new, :create]
-    get '/login', to: 'sessions#new'
+    resources :users
+
+
+    post "/signup", to: 'users#create'
+
+    
     post '/login', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'
     resources :questions do
