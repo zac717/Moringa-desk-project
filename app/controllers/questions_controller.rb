@@ -19,7 +19,7 @@ class QuestionsController < ApplicationController
       question = Question.new(question_params)
       question.user = current_user
       if question.save
-        render json: question, status: :created
+        render json: question,only: [:id, :title, :description], status: :created
       else
        render json: { errors: question.errors.full_messages },status: :unprocessable_entity
       end
