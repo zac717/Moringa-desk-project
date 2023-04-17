@@ -1,8 +1,10 @@
 class ApplicationController < ActionController::API
-    before_action :authenticate_user!
+  include ActionController::Cookies
+
+    # before_action :authenticate_user!
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
-    rescue_from Pundit::NotAuthorizedError, with: :render_forbidden_response
+    # rescue_from Pundit::NotAuthorizedError, with: :render_forbidden_response
     def authenticate_user!
       return if current_user.present?
       render json: { errors: ['You need to sign in or sign up before continuing.'] }, status: :unauthorized
