@@ -2,8 +2,10 @@ class QuestionsController < ApplicationController
     before_action :authenticate_user!, except: [:index, :show]
 
     before_action :set_question, only: [:show, :edit, :update, :destroy]
+
     def index
       questions = Question.all
+      render json: questions
      end
     def show
       answer = Answer.new(question: question)
@@ -17,9 +19,9 @@ class QuestionsController < ApplicationController
       question = Question.new(question_params)
       question.user = current_user
       if question.save
-        redirect_to question, notice: 'Question was successfully created.'
+        render json: question,only: [:id, :title, :description], status: :created
       else
-        render :new
+       render json: { errors: question.errors.full_messages },status: :unprocessable_entity
       end
     end
     def update
@@ -38,6 +40,6 @@ class QuestionsController < ApplicationController
       question = Question.find(params[:id])
     end
     def question_params
-      params.require(:question).permit(:title, :body)
+      params.require(:question).permit(:title, :description)
     end
   end
