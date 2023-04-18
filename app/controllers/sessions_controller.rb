@@ -6,8 +6,8 @@ class SessionsController < ApplicationController
         session[:user_id] = user.id
         render json: user, status: :created
       else
-        flash.now[:danger] = 'Invalid email/password combination'
-        render 'new'
+        render json: {errors:'Invalid email/password combination'}
+      
       end
     end
     def destroy
