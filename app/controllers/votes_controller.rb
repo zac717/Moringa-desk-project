@@ -1,7 +1,14 @@
 class VotesController < ApplicationController
   before_action :set_answer, only: [:create]
+
+  def index
+    render json: Vote.all 
+  end
   def create
+
+    
     vote = @answer.votes.new(user_id: current_user.id, value: params[:value])
+    vote.question = current_question
     if vote.save
       render json: vote, status: :created
     else

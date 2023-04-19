@@ -1,8 +1,13 @@
 class AnswersController < ApplicationController
-    before_action :authenticate_user!
+    before_action :authorize
 
     def index
       render json: Answer.all, status: :ok
+    end
+
+    def show
+      answer = Answer.find(params[:id])
+      render json:answer
     end
 
     def create

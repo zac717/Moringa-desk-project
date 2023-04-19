@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
-    before_action :authenticate_user, only: [:show, :update, :destroy]
+    before_action :authorize, only: [:show, :update, :destroy]
   
-
-    # def new
-    #     user = User.new
-    #   end
     def index
       users = User.all
       render json: users
