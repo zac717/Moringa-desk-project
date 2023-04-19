@@ -19,7 +19,7 @@ class ApplicationController < ActionController::API
     end
 
     def current_question
-      current_question ||= Question.find(params[:question_id])
+      Question.find(params[:question_id])
     end
 
 
