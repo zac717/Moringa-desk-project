@@ -1,26 +1,37 @@
 class AnswersController < ApplicationController
     before_action :authorize
+    before_action :set_answer
+    before_action :set_question
 
     def index
       render json: Answer.all, status: :ok
     end
 
     def show
-      answer = Answer.find(params[:id])
-      render json:answer
+     
+      render json: @answer
     end
 
     def create
-      answer = current_user.answers.create(answer_params)
-      answer.question = current_question
-      if answer
+      answer= @question.answers.new(user_id: current_user.id, description: params[:description])
+      
+      if answer.save
       render json: answer
       else
         render json: { errors: answer.errors.full_messages }, status: :unprocessable_entity
       end
     end
     private
-    def answer_params
-      params.require(:answer).permit(:description, :question_id)
+
+    def set_answer
+      @answer = Answer.find(params[:id])
     end
+  
+
+    def set_question
+      @question = Question.find(params[:question_id])
+    end
+    # def answer_params
+    #   params.require(:answer).permit(:description, :question_id)
+    # end
   end
