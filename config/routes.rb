@@ -16,6 +16,10 @@
 
     end
 
+
+  # resources :votes, only: [:index, :create, :update, :destroy]
+
+
     resources :answers do
       resources :votes, only: [:create, :update, :destroy]
 
@@ -24,8 +28,8 @@
 
 
 
-    resources :tags, only: [:show]
-    resources :question_tags, only: [:create, :destroy]
+    resources :tags, only: [:index, :show]
+    resources :question_tags, only: [:index, :create, :destroy]
     resources :notifications, only: [:index]
   end
 

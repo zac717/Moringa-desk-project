@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
     
 
-    validates :username, {presence: true, uniqueness: true, length: { minimum: 3, maximum: 12 }}
+    validates :username, {presence: true, uniqueness: true, length: { minimum: 3 }}
     validates :email, presence: true, uniqueness: true
 #    validates :password_digest, presence: true, uniqueness: true
 end

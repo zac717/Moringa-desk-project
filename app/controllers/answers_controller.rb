@@ -5,6 +5,11 @@ class AnswersController < ApplicationController
       render json: Answer.all, status: :ok
     end
 
+    def show
+      answer = Answer.find(params[:id])
+      render json:answer
+    end
+
     def create
       answer = current_user.answers.create(answer_params)
       answer.question = current_question
