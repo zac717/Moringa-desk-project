@@ -83,9 +83,9 @@ user_ids = (1..3).to_a.shuffle
 # Vote.create(user_id: user_ids.sample, answer_id:answer6a.id, value: 1)
 # Vote.create(user_id: user_ids.sample, answer_id: answer6b.id, value: 1)
 # Create some votes
-Vote.create(user_id: 1, answer_id: 2, value: 1)
-Vote.create(user_id: 2, answer_id: 1, value: 1)
-Vote.create(user_id: 3, answer_id: 3, value: 1)
+# Vote.create(user_id: 1, answer_id: 2, value: 1)
+# Vote.create(user_id: 2, answer_id: 1, value: 1)
+# Vote.create(user_id: 3, answer_id: 3, value: 1)
 
 
 
@@ -93,8 +93,13 @@ Vote.create(user_id: 3, answer_id: 3, value: 1)
 # Create Notifications
 
 
-# Notification.create(user_id: user_ids.sample, target_id: Question.find_by(id: 1), target_type: "Question", type:"NewQuestion" )
-# Notification.create(user_id: user_ids.sample, target_id: Answer.find_by(id: 1), target_type: "Answer", type: "Suggestion")
+Notification.create(user_id: 1,type:"question", target_id:1, target_type: "Question", message: "New question posted")
+Notification.create(user_id: 1,type:"answer",  target_id: 1, target_type: "Answer", message: "New answer posted")
+
+
+
+# Notification.create(user_id: user_ids.sample, target_id: Question.find_by(id: 1), target_type: "Question", message:"notification")
+# Notification.create(user_id: user_ids.sample, target_id: Answer.find_by(id: 1), target_type: "Answer", message:"notification")
 
 # Create some notifications
  
