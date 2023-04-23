@@ -1,5 +1,5 @@
  Rails.application.routes.draw do
-    root 'questions#index'
+
     resources :users
 
 
@@ -15,6 +15,14 @@
 
 
     end
+
+
+  
+      resources :questions do
+        resources :targets, only: [:create]
+      end
+    
+    
      resources :answers do
       resources :votes, only: [:create, :update, :destroy]
 
@@ -25,7 +33,7 @@
 
     resources :tags, only: [:index, :show]
     resources :question_tags, only: [:index, :create, :destroy]
-    resources :notifications, only: [:index]
+    resources :notifications
   end
 
   
