@@ -8,8 +8,19 @@ import Box from '@mui/material/Box'
 import CssBaseline from '@mui/material/CssBaseline'
 import Layout from './containers/Layout'
 import SignUpLogin from './containers/SignUpLogin'
-
-
+import Application from './Appss';
+import "./App.css";
+import Moringaflow from "./components/Moringaflow";
+import Header from "./components/Header";
+import AddQuestion from "./components/AddQuestion";
+import ViewQuestion from "./components/ViewQuestion";
+import { useDispatch, useSelector } from "react-redux";
+import { login, logout, selectUser } from "./feature/userSlice";
+import { useEffect } from "react";
+import { auth } from "./firebase";
+import SignUp from './containers/SignUpLogin';
+import Appss from './Appss';
+import QuestionsPage from './QuestionsPage';
 
 const GlobalStyles = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&family=Roboto:ital,wght@1,900&display=swap');
@@ -56,21 +67,25 @@ function App() {
   }
   return (
 
-    <Box className='flex column'>
-    <CssBaseline />
+
+
     <Router>
     <Layout user={user} onLogout={handleLogout}>
+
     <Routes>
+
     <Route
-    index
-    path='/'
-    element={
-      <Home />}
+     index
+     path='/'
+      element={
+      <Home
+      user={user}
       />
+      }/>
       <Route
       path='join-moringaDesk'
       element={
-        <SignUpLogin
+        <SignUp
           onLogin={setUser}
           onLogout={handleLogout}
           user={user}
@@ -90,13 +105,39 @@ function App() {
     }
   />
 
+      <Route
+        path='search'
+        element={
+          <Moringaflow
+          user={user}
+           onLogout={handleLogout}
+           setUser={setUser}
+             handleCheckLogin={handleCheckLogin}
+            />
+            }
+           />
+           <Route
+           path='add-question'
+           element={
+             <AddQuestion
+             user={user}
+              onLogout={handleLogout}
+              setUser={setUser}
+                handleCheckLogin={handleCheckLogin}
+               />
+               }
+              />
+
+
+
     </Routes>
     </Layout>
     </Router>
-    </Box>
+
 
   );
 
 }
 
 export default App;
+

@@ -25,7 +25,7 @@ const Hero = ({ user }) => {
           <div className='padding-top'>
             <Button
               onClick={() =>
-                navigate(!user ? `/login` : `/profile/`)
+                navigate(!user ? `/login` : `/search `)
               }
               variant='contained'
               className='b-radius btn btn-lg'

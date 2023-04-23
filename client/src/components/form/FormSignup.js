@@ -9,6 +9,8 @@ const FormSignup = ({ onLogin }) => {
   const [password, setPassword] = React.useState('')
   const [passwordConfirmation, setPasswordConfirmation] = React.useState('')
   const [errors, setErrors] = React.useState([])
+  const [location, setLocation] = React.useState('')
+
 
   let navigate = useNavigate()
 
@@ -26,6 +28,7 @@ const FormSignup = ({ onLogin }) => {
         password,
         password_confirmation: passwordConfirmation,
         email,
+        location,
         profile_color: '#004d40',
       }),
     }).then((response) => {
@@ -56,6 +59,14 @@ const FormSignup = ({ onLogin }) => {
         onChange={(e) => setLastName(e.target.value)}
         value={lastName}
         label='Last Name'
+        variant='outlined'
+        fullWidth
+      />
+
+      <TextField
+        onChange={(e) => setLocation(e.target.value)}
+        value={location}
+        label='Location'
         variant='outlined'
         fullWidth
       />
@@ -108,4 +119,6 @@ const FormSignup = ({ onLogin }) => {
   )
 }
 
-export default FormSignup
+
+
+  export default FormSignup
