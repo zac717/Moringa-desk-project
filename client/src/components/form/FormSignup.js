@@ -3,13 +3,12 @@ import { Button, TextField, Alert, Stack } from '@mui/material'
 import { useNavigate } from 'react-router'
 
 const FormSignup = ({ onLogin }) => {
-  const [firstName, setFirstName] = React.useState('')
-  const [lastName, setLastName] = React.useState('')
+  const [userName, setUserName] = React.useState('')
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
   const [passwordConfirmation, setPasswordConfirmation] = React.useState('')
   const [errors, setErrors] = React.useState([])
-  const [location, setLocation] = React.useState('')
+
 
 
   let navigate = useNavigate()
@@ -17,18 +16,16 @@ const FormSignup = ({ onLogin }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     setErrors([])
-    fetch('/api/signup', {
+    fetch('/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        first_name: firstName,
-        last_name: lastName,
+        user_name: userName,
         password,
         password_confirmation: passwordConfirmation,
         email,
-        location,
         profile_color: '#004d40',
       }),
     }).then((response) => {
@@ -47,29 +44,13 @@ const FormSignup = ({ onLogin }) => {
     <form onSubmit={handleSubmit} className='form'>
       <TextField
         required
-        onChange={(e) => setFirstName(e.target.value)}
-        value={firstName}
-        label='First Name'
+        onChange={(e) => setUserName(e.target.value)}
+        value={userName}
+        label='userName'
         variant='outlined'
         fullWidth
       />
 
-      <TextField
-        required
-        onChange={(e) => setLastName(e.target.value)}
-        value={lastName}
-        label='Last Name'
-        variant='outlined'
-        fullWidth
-      />
-
-      <TextField
-        onChange={(e) => setLocation(e.target.value)}
-        value={location}
-        label='Location'
-        variant='outlined'
-        fullWidth
-      />
 
       <TextField
         required
