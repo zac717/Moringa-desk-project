@@ -9,18 +9,16 @@ import CssBaseline from '@mui/material/CssBaseline'
 import Layout from './containers/Layout'
 import SignUpLogin from './containers/SignUpLogin'
 import Application from './Appss';
+import {  createTheme } from '@mui/material/styles'
 import "./App.css";
 import Moringaflow from "./components/Moringaflow";
 import Header from "./components/Header";
 import AddQuestion from "./components/AddQuestion";
 import ViewQuestion from "./components/ViewQuestion";
-import { useDispatch, useSelector } from "react-redux";
-import { login, logout, selectUser } from "./feature/userSlice";
-import { useEffect } from "react";
-import { auth } from "./firebase";
 import SignUp from './containers/SignUpLogin';
 import Appss from './Appss';
 import QuestionsPage from './QuestionsPage';
+import ProfileInfo from './containers/profile/ProfileInfo'
 
 const GlobalStyles = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&family=Roboto:ital,wght@1,900&display=swap');
@@ -33,7 +31,7 @@ body{
 `;
 
 function App() {
-
+  const appliedTheme = createTheme(theme)
   const [user, setUser] = React.useState(null)
 
 
@@ -67,8 +65,9 @@ function App() {
   }
   return (
 
-
-
+    <ThemeProvider theme={appliedTheme}>
+    <Box className='flex column'>
+    <CssBaseline />
     <Router>
     <Layout user={user} onLogout={handleLogout}>
 
@@ -127,14 +126,36 @@ function App() {
                />
                }
               />
+              <Route
+              path='question'
+              element={
+                <ViewQuestion
+                user={user}
+                 onLogout={handleLogout}
+                 setUser={setUser}
+                   handleCheckLogin={handleCheckLogin}
+                  />
+                  }
+                 />
+                 <Route
+                 path='/profile/my-info'
+                 element={
+                   <ProfileInfo
+                     user={user}
+                     onLogout={handleLogout}
+                     setUser={setUser}
+                     handleCheckLogin={handleCheckLogin}
+                   />
+                 }
+               />
 
 
 
     </Routes>
     </Layout>
     </Router>
-
-
+    </Box>
+    </ThemeProvider>
   );
 
 }

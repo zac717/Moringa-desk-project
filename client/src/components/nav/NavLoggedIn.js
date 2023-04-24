@@ -32,8 +32,8 @@ const NavLoggedIn = ({ user, onLogout }) => {
             color='secondary'
             className='btn b-radius'
             startIcon={<BookmarkIcon />}
-            onClick={() => navigate(`/profile/my-bookclubs`)}>
-        my questions
+            onClick={() => navigate(`/search`)}>
+        Home
           </Button>
         </Grid>
 

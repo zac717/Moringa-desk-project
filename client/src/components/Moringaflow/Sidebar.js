@@ -20,7 +20,7 @@ function Sidebar() {
             <div className="link">
               <div className="link-tag">
                 <PublicIcon />
-                <Link to="/">Question</Link>
+                <Link to="/question">Question</Link>
 
                 {/* <a href="/">Question</a> */}
               </div>
