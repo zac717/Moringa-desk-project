@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Button from '@mui/material/Button'
-import Avatar from '@mui/material/Avatar'
+// import Avatar from '@mui/material/Avatar'
 import IconButton from '@mui/material/IconButton'
 import { Grid } from '@mui/material'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
@@ -38,9 +38,9 @@ const NavLoggedIn = ({ user, onLogout }) => {
         </Grid>
 
         <Grid item container xs='auto'>
-          <Avatar sx={{ bgcolor: user.profile_color }}>
+          {/* <Avatar sx={{ bgcolor: user.profile_color }}>
             {changeToInitials(user.full_name)}
-          </Avatar>
+          </Avatar> */}
           <IconButton
             edge='start'
             color='inherit'

@@ -3,10 +3,10 @@ import { Button, TextField, Alert, Stack } from '@mui/material'
 import { useNavigate } from 'react-router'
 
 const FormSignup = ({ onLogin }) => {
-  const [userName, setUserName] = React.useState('')
+  const [username, setUserName] = React.useState('')
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
-  const [passwordConfirmation, setPasswordConfirmation] = React.useState('')
+  // const [passwordConfirmation, setPasswordConfirmation] = React.useState('')
   const [errors, setErrors] = React.useState([])
 
 
@@ -22,11 +22,11 @@ const FormSignup = ({ onLogin }) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        user_name: userName,
+        username: username,
         password,
-        password_confirmation: passwordConfirmation,
-        email,
-        profile_color: '#004d40',
+        
+        email
+      
       }),
     }).then((response) => {
       if (response.ok) {
@@ -45,8 +45,8 @@ const FormSignup = ({ onLogin }) => {
       <TextField
         required
         onChange={(e) => setUserName(e.target.value)}
-        value={userName}
-        label='userName'
+        value={username}
+        label='Username'
         variant='outlined'
         fullWidth
       />
@@ -71,16 +71,7 @@ const FormSignup = ({ onLogin }) => {
         fullWidth
       />
 
-      <TextField
-        required
-        onChange={(e) => setPasswordConfirmation(e.target.value)}
-        value={passwordConfirmation}
-        label='Confirm Password'
-        variant='outlined'
-        type='password'
-        fullWidth
-      />
-
+      
       <Button
         type='submit'
         variant='contained'

@@ -1,9 +1,9 @@
-import { Avatar } from "@material-ui/core";
+//import { Avatar } from "@material-ui/core";
 import React, { useState } from "react";
 import "./css/AllQuestions.css";
 import ReactHtmlParser from "react-html-parser";
 import { Link } from "react-router-dom";
-import { stringAvatar } from "../../utils/Avatar";
+// import { stringAvatar } from "../../utils/Avatar";
 
 function AllQuestions({ data }) {
   function truncate(str, n) {
@@ -63,7 +63,7 @@ function AllQuestions({ data }) {
           <div className="author">
             <small>{data.create_at}</small>
             <div className="auth-details">
-              <Avatar {...stringAvatar(data?.user?.displayName)} />
+              {/* <Avatar {...stringAvatar(data?.user?.displayName)} /> */}
               <p>
                 {data?.user?.displayName
                   ? data?.user?.displayName

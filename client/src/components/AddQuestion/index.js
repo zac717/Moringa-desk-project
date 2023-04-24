@@ -65,26 +65,26 @@ function Index() {
    */
 
   const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
+  const [desription, setDesription] = useState("");
   const [tag, setTag] = useState([]);
   const history = useNavigate();
 
   const handleQuill = (value) => {
-    setBody(value);
+    setDesription(value);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (title !== "" && body !== "") {
+    if (title !== "" && desription !== "") {
       const bodyJSON = {
         title: title,
-        body: body,
+        desription: desription,
         tag: JSON.stringify(tag),
         user: user,
       };
       await axios
-        .post("/api/question", bodyJSON)
+        .post("/questions", bodyJSON)
         .then((res) => {
           // console.log(res.data);
           alert("Question added successfully");
@@ -126,7 +126,7 @@ function Index() {
                   question
                 </small>
                 <ReactQuill
-                  value={body}
+                  value={desription}
                   onChange={handleQuill}
                   modules={Editor.modules}
 

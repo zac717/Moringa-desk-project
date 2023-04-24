@@ -1,4 +1,4 @@
-import { Avatar } from "@material-ui/core";
+// import { Avatar } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import BookmarkIcon from "@material-ui/icons/Bookmark";
 import HistoryIcon from "@material-ui/icons/History";
@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import "./index.css";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../feature/userSlice";
-import { stringAvatar } from "../../utils/Avatar";
+// import { stringAvatar } from "../../utils/Avatar";
 
 function MainQuestion() {
   var toolbarOptions = [
@@ -185,7 +185,7 @@ function MainQuestion() {
                   asked {new Date(questionData?.created_at).toLocaleString()}
                 </small>
                 <div className="auth-details">
-                  <Avatar {...stringAvatar(questionData?.user?.displayName)} />
+                  {/* <Avatar {...stringAvatar(questionData?.user?.displayName)} /> */}
                   <p>
                     {questionData?.user?.displayName
                       ? questionData?.user?.displayName
@@ -284,7 +284,7 @@ function MainQuestion() {
                       asked {new Date(_q.created_at).toLocaleString()}
                     </small>
                     <div className="auth-details">
-                      <Avatar {...stringAvatar(_q?.user?.displayName)} />
+                      {/* <Avatar {...stringAvatar(_q?.user?.displayName)} /> */}
                       <p>
                         {_q?.user?.displayName
                           ? _q?.user?.displayName

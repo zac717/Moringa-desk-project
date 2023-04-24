@@ -1,8 +1,8 @@
 import dateFormat from 'dateformat'
 
-export const changeToInitials = (name) => {
-  return `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`
-}
+// export const changeToInitials = (name) => {
+//   return `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`
+// }
 
 export const changeDate = (due_date) => {
   const dueDateToDate = parseDate(due_date)

@@ -12,7 +12,7 @@ const FormLogin = ({ onLogin }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     setErrors([])
-    fetch('/api/login', {
+    fetch('/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

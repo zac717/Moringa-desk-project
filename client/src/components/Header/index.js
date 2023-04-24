@@ -1,7 +1,7 @@
 import React from "react";
 import "./css/index.css";
 import SearchIcon from "@material-ui/icons/Search";
-import { Avatar } from "@material-ui/core";
+// import { Avatar } from "@material-ui/core";
 // import Avatar from "@mui/material/Avatar";
 import InboxIcon from "@material-ui/icons/Inbox";
 import HelpIcon from "@material-ui/icons/Help";
@@ -33,14 +33,14 @@ function Header() {
     return color;
   }
 
-  function stringAvatar(name) {
-    return {
-      sx: {
-        bgcolor: name ? stringToColor(name) : "rgba(255,255,255,0.8)",
-      },
-      children: name && `${name.split(" ")[0][0]}${name.split(" ")[1][0]}`,
-    };
-  }
+  // function stringAvatar(name) {
+  //   return {
+  //     sx: {
+  //       bgcolor: name ? stringToColor(name) : "rgba(255,255,255,0.8)",
+  //     },
+  //     children: name && `${name.split(" ")[0][0]}${name.split(" ")[1][0]}`,
+  //   };
+  // }
   return (
     <header>
       <div className="header-container">
@@ -65,13 +65,13 @@ function Header() {
           <div className="header-right-container">
             {window.innerWidth < 768 && <SearchIcon />}
 
-            <Avatar
+            {/* <Avatar
               style={{
                 cursor: "pointer",
               }}
-              {...stringAvatar(user && user.displayName)}
+              //  {...stringAvatar(user && user.displayName)}
               onClick={() => auth.signOut()}
-            />
+            /> */}
 
 
 
