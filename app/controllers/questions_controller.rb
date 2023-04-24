@@ -7,9 +7,18 @@ class QuestionsController < ApplicationController
       questions = Question.all
       render json: questions
      end
-    def show
-      answer = Answer.new(question: question)
+
+     def show
+      question = set_question
+      if question 
+        render json: question
+      else 
+        render json:{error:"Not found"}
      end
+    end
+    # def show
+    #   answer = Answer.new(question: question)
+    #  end
     def new
       question = Question.new
     end

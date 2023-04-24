@@ -65,21 +65,21 @@ function Index() {
    */
 
   const [title, setTitle] = useState("");
-  const [desription, setDesription] = useState("");
+  const [description, setDescription] = useState("");
   const [tag, setTag] = useState([]);
   const history = useNavigate();
 
   const handleQuill = (value) => {
-    setDesription(value);
+    setDescription(value);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (title !== "" && desription !== "") {
+    if (title !== "" && description !== "") {
       const bodyJSON = {
         title: title,
-        desription: desription,
+        description: description,
         tag: JSON.stringify(tag),
         user: user,
       };
@@ -120,13 +120,13 @@ function Index() {
             </div>
             <div className="question-option">
               <div className="title">
-                <h3>Body</h3>
+                <h3>Description</h3>
                 <small>
                   Include all the information someone would need to answer your
                   question
                 </small>
                 <ReactQuill
-                  value={desription}
+                  value={description}
                   onChange={handleQuill}
                   modules={Editor.modules}
 

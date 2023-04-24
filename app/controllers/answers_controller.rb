@@ -13,7 +13,7 @@ class AnswersController < ApplicationController
     end
 
     def create
-      answer= @question.answers.new(user_id: current_user.id, description: params[:description])
+      answer= @question.answers.new(user_id: current_user.id, description: params[:answer])
       
       if answer.save
       render json: answer
