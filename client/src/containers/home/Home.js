@@ -1,6 +1,7 @@
 import React from 'react'
 import Hero from '../../components/home/Hero'
 import HomeRecs from './HomeRecs'
+import Footer from '../../components/Footer'
 
 const Home = ({ user, recommendationLists, handleListSearch }) => {
   return (
@@ -14,5 +15,6 @@ const Home = ({ user, recommendationLists, handleListSearch }) => {
     </>
   )
 }
+
 
 export default Home

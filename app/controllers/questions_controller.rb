@@ -10,9 +10,9 @@ class QuestionsController < ApplicationController
 
      def show
       question = set_question
-      if question 
+      if question
         render json: question
-      else 
+      else
         render json:{error:"Not found"}
      end
     end
@@ -22,7 +22,7 @@ class QuestionsController < ApplicationController
     def new
       question = Question.new
     end
-    
+
     def create
       question = Question.new(question_params)
       question.user = current_user
@@ -35,7 +35,7 @@ class QuestionsController < ApplicationController
     def update
       question = set_question
       if question.update(question_params)
-       render json: question,status: :ok 
+       render json: question,status: :ok
       else
         render json:{ errors: question.errors.full_messages}, status: :unprocessable_entity
       end

@@ -1,34 +1,22 @@
-import Home from './containers/home/Home'
-import styled, {ThemeProvider, createGlobalStyle} from 'styled-components';
-import AfterSignup from './AfterSignup';
-import * as React from 'react'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import theme from './theme/theme'
-import Box from '@mui/material/Box'
-import CssBaseline from '@mui/material/CssBaseline'
-import Layout from './containers/Layout'
-import SignUpLogin from './containers/SignUpLogin'
-import Application from './Appss';
-import {  createTheme } from '@mui/material/styles'
-import "./App.css";
+import Home from './containers/home/Home';
+import  { ThemeProvider } from 'styled-components';
+import * as React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import theme from './theme/theme';
+import Box from '@mui/material/Box';
+import CssBaseline from '@mui/material/CssBaseline';
+import Layout from './containers/Layout';
+import SignUpLogin from './containers/SignUpLogin';
+import {  createTheme } from '@mui/material/styles';
 import Moringaflow from "./components/Moringaflow";
-import Header from "./components/Header";
 import AddQuestion from "./components/AddQuestion";
 import ViewQuestion from "./components/ViewQuestion";
 import SignUp from './containers/SignUpLogin';
-import Appss from './Appss';
-import QuestionsPage from './QuestionsPage';
-import ProfileInfo from './containers/profile/ProfileInfo'
+import ProfileInfo from './containers/profile/ProfileInfo';
+import Footer from './components/Footer';
+import  './css/App.css'
 
-const GlobalStyles = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&family=Roboto:ital,wght@1,900&display=swap');
 
-body{
-  background: #2d2d2d;
-  color: #fff;
-  font-family: Roboto; sans-serif;
-}
-`;
 
 function App() {
   const appliedTheme = createTheme(theme)
@@ -80,6 +68,7 @@ function App() {
       <Home
       user={user}
       />
+
       }/>
       <Route
       path='join-moringaDesk'

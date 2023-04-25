@@ -3,11 +3,13 @@ import '../../css/Hero.css'
 import { Grid, Typography, Paper, Button } from '@mui/material'
 
 import { useNavigate } from 'react-router-dom'
+import Footer from '../Footer'
 
 const Hero = ({ user }) => {
   let navigate = useNavigate()
 
   return (
+    <div>
     <Grid
       container
       spacing={2}
@@ -32,10 +34,19 @@ const Hero = ({ user }) => {
               color='primary'>
               Ask a question
             </Button>
-          </div>
-        </Grid>
-      </Paper>
-    </Grid>
+            </div>
+            </Grid>
+            </Paper>
+            </Grid>
+
+            <Footer />
+            </div>
+
+
+
+
+
+
   )
 }
 
