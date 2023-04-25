@@ -10,7 +10,10 @@ function AllQuestions({ data }) {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
   }
 
-  let tags = JSON.parse(data?.tags[0]);
+
+  let tags = data?.tags && data.tags.length > 0 ? JSON.parse(data.tags[0]) : [];
+
+  // let tags = JSON.parse(data?.tags[0]);
   // console.log();
   return (
     <div className="all-questions">
@@ -47,7 +50,7 @@ function AllQuestions({ data }) {
               display: "flex",
             }}
           >
-            {tags.map((_tag) => (
+            {/* {tags.map((_tag) => (
               <p
                 style={{
                   margin: "10px 5px",
@@ -58,7 +61,7 @@ function AllQuestions({ data }) {
               >
                 {_tag}
               </p>
-            ))}
+            ))} */}
           </div>
           <div className="author">
             <small>{data.create_at}</small>

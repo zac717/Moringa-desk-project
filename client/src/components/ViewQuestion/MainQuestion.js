@@ -80,18 +80,25 @@ function MainQuestion() {
   };
 
   useEffect(() => {
-    async function getFunctionDetails() {
-      await axios
-        .get(`/api/question/${id}`)
-        .then((res) => setQuestionData(res.data[0]))
-        .catch((err) => console.log(err));
+   async function getFunctionDetails() {
+    if (!id) {
+      return;
     }
-    getFunctionDetails();
-  }, [id]);
+
+    try {
+      const res = await axios.get(`/questions/${id}`);
+      setQuestionData(res.data[0]);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  getFunctionDetails();
+}, [id]);
 
   async function getUpdatedAnswer() {
     await axios
-      .get(`/api/question/${id}`)
+      .get(`/questions/${id}`)
       .then((res) => setQuestionData(res.data[0]))
       .catch((err) => console.log(err));
   }
@@ -110,7 +117,7 @@ function MainQuestion() {
     };
 
     await axios
-      .post("/api/answer", body, config)
+      .post(`/questions/${id}/answers`, body, config)
       .then(() => {
         alert("Answer added successfully");
         setAnswer("");

@@ -57,7 +57,7 @@ function App() {
   }
 
   const handleLogout = () => {
-    fetch('/api/logout', {
+    fetch('/logout', {
       method: 'DELETE',
     }).then((response) => {
       if (response.ok) setUser(null)
