@@ -23,8 +23,10 @@ const FormSignup = ({ onLogin }) => {
       },
       body: JSON.stringify({
         username: username,
-        password: password,
-        email: email
+        password,
+        
+        email
+      
       }),
     }).then((response) => {
       if (response.ok) {
