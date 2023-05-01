@@ -27,7 +27,6 @@ function Sidebar() {
 
               <div className="tags">
                 <p>Tags</p>
-                <p>Users</p>
               </div>
             </div>
           </div>

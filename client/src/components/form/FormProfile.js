@@ -84,48 +84,15 @@ const FormProfile = ({ user, handleCheckLogin }) => {
 
   return (
     <form onSubmit={handleSubmit} className='form'>
-      <FormControl>
-        <InputLabel id='profile-colors'>Profile Color</InputLabel>
-        <Select
-          labelId='profile-colors'
-          onChange={(e) => setColor(e.target.value)}
-          value={color}>
-          {colors.map((color) => (
-            <MenuItem value={color.value} key={color.name} sx={{ pt: 3 }}>
-              {color.name}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
 
-      <TextField
-        onChange={(e) => setFirstName(e.target.value)}
-        value={firstName}
-        label='First Name'
-        variant='outlined'
-        fullWidth
-      />
 
-      <TextField
-        onChange={(e) => setLastName(e.target.value)}
-        value={lastName}
-        label='Last Name'
-        variant='outlined'
-        fullWidth
-      />
 
-      <TextField
-        onChange={(e) => setLocation(e.target.value)}
-        value={location}
-        label='Location'
-        variant='outlined'
-        fullWidth
-      />
+
 
       <TextField
         onChange={(e) => setEmail(e.target.value)}
         value={email}
-        label='Email'
+        label='Username'
         variant='outlined'
         fullWidth
       />

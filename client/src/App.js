@@ -33,7 +33,7 @@ function App() {
   }, [])
 
   const handleCheckLogin = () => {
-    fetch('/api/me').then((response) => {
+    fetch('/me').then((response) => {
       if (response.ok) {
         response.json().then((user) => {
           setUser(user)

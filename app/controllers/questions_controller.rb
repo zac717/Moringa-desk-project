@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-    before_action :authorize, except: [:index, :show]
+    # before_action :authorize, except: [:index, :show]
 
     before_action :set_question, only: [:show, :update, :destroy]
 

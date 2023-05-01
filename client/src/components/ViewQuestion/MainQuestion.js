@@ -133,7 +133,7 @@ function MainQuestion() {
         comment: comment,
         user: user,
       };
-      await axios.post(`/api/comment/${id}`, body).then((res) => {
+      await axios.post(`comment/${id}`, body).then((res) => {
         setComment("");
         setShow(false);
         getUpdatedAnswer();
@@ -196,7 +196,7 @@ function MainQuestion() {
                   <p>
                     {questionData?.user?.displayName
                       ? questionData?.user?.displayName
-                      : "Natalia lee"}
+                      : "zac  lee"}
                   </p>
                 </div>
               </div>
