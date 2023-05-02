@@ -34,7 +34,11 @@ function AllQuestions({ data }) {
           </div>
         </div>
         <div className="question-answer">
-          <Link to={`/question?q=${data?._id}`}>{data.title}</Link>
+       
+        <Link to={`/question?q=${data.id}`} onClick={() => console.log(data.id)}>{data.title}</Link>
+
+
+
 
           {/* <a href=>{data.title}</a> */}
 

@@ -12,23 +12,21 @@
 
 
     resources :questions do
-      resources :answers
+      resources :answers, only: [:create]
 
 
     end
 
 
 
-      resources :questions do
-        resources :targets, only: [:create]
-      end
+      
 
 
-     resources :answers do
-      resources :votes, only: [:create, :update, :destroy]
+    #  resources :answers do
+    #   resources :votes, only: [:create, :update, :destroy]
 
-      # http://127.0.0.1:3000/answers/1/votes
-    end
+    #   # http://127.0.0.1:3000/answers/1/votes
+    # end
 
 
 

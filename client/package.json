@@ -35,7 +35,7 @@
     "styled-components": "^5.3.9",
     "web-vitals": "^2.1.4"
   },
-  "proxy": "https://moringa-desk.onrender.com",
+  "proxy": "http://127.0.0.1:3000",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
