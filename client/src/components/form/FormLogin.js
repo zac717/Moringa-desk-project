@@ -39,7 +39,7 @@ const FormLogin = ({ onLogin }) => {
         required
         onChange={(e) => setEmail(e.target.value)}
         value={email}
-        label='Username'
+        label='Email'
         variant='outlined'
         fullWidth
       />
